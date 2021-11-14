@@ -37,7 +37,7 @@ class Header extends Component {
       <div className="row banner" >
          <div className="banner-text" >
             <h1 className="responsive-headline">I'm {name}.</h1>
-            <h3 id="fuck">
+            <h3 id="typewriter_h3">
                I'm a {city} based &ensp; <Typewriter  id="shit" options={{ strings:   ["Software Engineer" , "code monkey", "computer wizard", "power lifter", "hip hop enthusiast", "football fan", "professional googler", "Seinfield lover"], autoStart: true,loop: true,}}/>  
                {description}
             </h3>
