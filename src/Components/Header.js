@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typewriter from 'typewriter-effect';
 
 class Header extends Component {
   render() {
@@ -33,9 +34,12 @@ class Header extends Component {
       </nav>
 
       <div className="row banner">
-         <div className="banner-text">
+         <div className="banner-text" >
             <h1 className="responsive-headline">I'm {name}.</h1>
-            <h3>I'm a {city} based <span>{occupation}</span>. {description}</h3>
+            <h3 style= {{display: 'inline'}}>
+               I'm a {city} based <Typewriter options={{ strings: ['Software Engineer'],autoStart: true,loop: true,}}/>  
+               {description}
+            </h3>
             <hr />
             <ul className="social">
                {networks}
