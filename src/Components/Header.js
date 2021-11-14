@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Typewriter from 'typewriter-effect';
-
+import './Header.css';
 class Header extends Component {
   render() {
 
@@ -9,6 +9,7 @@ class Header extends Component {
       var occupation= this.props.data.occupation;
       var description= this.props.data.description;
       var city= this.props.data.address.city;
+      
       var networks= this.props.data.social.map(function(network){
         return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
       })
@@ -33,11 +34,11 @@ class Header extends Component {
 
       </nav>
 
-      <div className="row banner">
+      <div className="row banner" >
          <div className="banner-text" >
             <h1 className="responsive-headline">I'm {name}.</h1>
-            <h3 style= {{display: 'inline'}}>
-               I'm a {city} based <Typewriter options={{ strings: ['Software Engineer'],autoStart: true,loop: true,}}/>  
+            <h3 id="fuck">
+               I'm a {city} based &ensp; <Typewriter  id="shit" options={{ strings:   ["Software Engineer" , "code monkey", "computer wizard", "power lifter", "hip hop enthusiast", "football fan", "professional googler", "Seinfield lover"], autoStart: true,loop: true,}}/>  
                {description}
             </h3>
             <hr />
