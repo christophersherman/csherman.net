@@ -27,9 +27,9 @@ class Header extends Component {
             <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
             <li><a className="smoothscroll" href="#about">About</a></li>
 	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            {/*<li><a className="smoothscroll" href="#portfolio">Works</a></li>*/}
+            {/*<li><a className="smoothscroll" href="#portfolio">Works</a></li>
             <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
-            {/*<li><a className="smoothscroll" href="#contact">Contact</a></li>*/}
+            <li><a className="smoothscroll" href="#contact">Contact</a></li>*/}
          </ul>
 
       </nav>
@@ -38,7 +38,7 @@ class Header extends Component {
          <div className="banner-text" >
             <h1 className="responsive-headline">I'm {name}.</h1>
             <h3 id="typewriter_h3">
-               I'm a {city} based &ensp; <Typewriter  id="shit" options={{ strings:   ["Software Engineer" , "code monkey", "computer wizard", "power lifter", "hip hop enthusiast", "football fan", "professional googler", "Seinfield lover"], autoStart: true,loop: true,}}/>  
+               I'm a {city} based &ensp; <Typewriter  id="shit" options={{ strings:   ["Site Reliability Engineer", "Software Engineer" , "code monkey", "terminal smasher", "Arch elitist", "computer wizard", "power lifter", "hip hop enthusiast", "football fan", "professional googler", "Seinfield lover"], autoStart: true,loop: true,}}/>  
                {description}
             </h3>
             <hr />

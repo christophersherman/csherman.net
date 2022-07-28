@@ -1,12 +1,12 @@
 {
   "main": {
     "name": "Chris Sherman",
-    "occupation": "Software Engineer",
+    "occupation": "Site Reliability Engineer",
     "description": "",
     "image": "profilepic.jpg",
-    "bio": "Dual American/Australian citizen who grew up in Texas and has come to Sydney for something new. Lover of technology, Hip-Hop, and American Football. ",
+    "bio": "Dual American/Australian citizen. Raised and schooled in Texas. Relocated to Sydney, AUS in 2020. Lover of all things tech, fitness, and music. Always learning. ",
     "contactmessage": "Feel free to use this to message me, or via Email.",
-    "email": "crsherman98@gmail.com",
+    "email": "sherm@fastmail.com",
     "phone": "0487-350-467",
     "address": {
       "street": "26/2 Hilts Rd",
@@ -17,14 +17,10 @@
     "website": "crsherman.com",
     "resumedownload": "crsherman.com/resume.pdf",
     "social": [
-      {
-        "name": "facebook",
-        "url": "http://facebook.com/",
-        "className": "fa fa-facebook"
-      },
+      
       {
         "name": "twitter",
-        "url": "http://twitter.com/csherman120",
+        "url": "http://twitter.com/csherman_io",
         "className": "fa fa-twitter"
       },
       {
@@ -39,7 +35,7 @@
       },
       {
         "name": "github",
-        "url": "http://github.com/crsherman",
+        "url": "http://github.com/christophersherman",
         "className": "fa fa-github"
       }
     ]
@@ -56,9 +52,15 @@
     ],
     "work": [
       {
+        "company": "Qantas",
+        "title": "Site Reliability Engineer",
+        "years": "Feb 2022 - Present",
+        "description":  "Using Jira, Splunk, Akamai, MySQL, Ansible, Jenkins, NginX, AWS to maintain and troubleshoot suite of hundreds of Spring Boot services. Apart of a 24/7 oncall roster"
+      },
+      {
         "company": "SICE",
         "title": "Software Engineer",
-        "years": "Sept 2020 - Present",
+        "years": "Sept 2020 - Feb 2022",
         "description": "Developing control software for integrated operations control centers for the WestConnex project. Writing and designing software support documentation for project manuals and test plans. Automating test development for software functionality using Ansible and Python"
       },
       {
@@ -76,7 +78,7 @@
     ],
     "skills": [
       {
-        "name": "Git",
+        "name": "Spring Boot",
         "level": "60%"
       },
       {
@@ -84,24 +86,28 @@
         "level": "70%"
       },
       {
-        "name": "ReactJs",
-        "level": "40%"
+        "name": "Splunk",
+        "level": "55%"
       },
       {
         "name": "Ansible",
         "level": "85%"
       },
       {
-        "name": "JIRA",
-        "level": "80%"
+        "name": "AWS",
+        "level": "70%"
       },
       {
-        "name": "Java",
-        "level": "65%"
+        "name": "Jenkins CI/CD",
+        "level": "75%"
       },
       {
-        "name": "NodeJS",
+        "name": "Bash",
         "level": "60%"
+      },
+      {
+        "name": "Git",
+        "level": "90%"
       }
     ]
   },
