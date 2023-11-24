@@ -1,0 +1,41 @@
+# General
+*.log
+*.env
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.DS_Store
+Thumbs.db
+.db
+*.sqlite
+.vscode/
+
+# Python virtualenv
+venv/
+env/
+virtualenv_run/
+
+# Flask specific
+instance/
+.webassets-cache
+
+# Node (for Vue.js)
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+*/package-lock.json
+/yarn.lock
+
+# Build artifacts
+/dist/
+
+# IDE specific (e.g., for PyCharm, VSCode, etc.)
+.idea/
+*.swp
+*.swo
+*~
+
+# Optional: Uncomment if you are using a database dump in your repo
+#/db-dump.sql
