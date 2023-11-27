@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 5001
 ENV NAME World
-CMD ["python", "app.py"]
+CMD ["python", "run.py"]

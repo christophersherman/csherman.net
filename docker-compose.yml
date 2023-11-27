@@ -6,11 +6,23 @@ services:
       - "80:80"
   flask-app:
     build: ./backend
+    env_file:
+      - ./.env
     ports:
       - "5001:5001"
-  postgres:
-    image: postgres
+  mysql-db:
+    platform: linux/x86_64
+    image: mysql:5.7
     environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE} 
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD} 
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "5432:5432"
+      - "3306:3306"
+    volumes:
+      - my-db:/var/lib/mysql
+
+
+volumes:
+  my-db:

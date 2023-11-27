@@ -10,7 +10,7 @@ Thumbs.db
 .db
 *.sqlite
 .vscode/
-
+mysql-init/
 # Python virtualenv
 venv/
 env/
