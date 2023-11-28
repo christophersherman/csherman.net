@@ -41,12 +41,20 @@ pipeline {
             sh 'docker-compose -f docker-compose.test.yml down -v'
             // Remove the .env file 
             sh 'rm -f .env'
-            }
-            success {
-                echo 'Pipeline successfully executed'
-            }
-            failure {
-                echo 'Pipeline failed'
-            }
         }
+        success {
+            script {
+                // Update GitHub commit status to success
+                updateGitHubCommitStatus state: 'SUCCESS', context: 'CI/Jenkins', description: 'The build succeeded!'
+            }
+            echo 'Pipeline successfully executed'
+        }
+        failure {
+            script {
+                // Update GitHub commit status to failure
+                updateGitHubCommitStatus state: 'FAILURE', context: 'CI/Jenkins', description: 'The build failed!'
+            }
+            echo 'Pipeline failed'
+        }
+    }
 }
