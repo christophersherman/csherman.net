@@ -31,14 +31,16 @@ pipeline {
                 // Run the test commands
                 sh 'docker-compose -f docker-compose.test.yml run flask-app python -m unittest'
                 // Shut down the services after tests
+                sh 'docker-compose -f docker-compose.test.yml down'
             }
         }
     }
     post {
         always {
             // Clean up Docker
+            sh 'docker-compose -f docker-compose.test.yml down -v'
             // Remove the .env file 
-            echo 'yo'
+            sh 'rm -f .env'
             }
             success {
                 echo 'Pipeline successfully executed'
