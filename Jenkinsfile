@@ -44,15 +44,15 @@ pipeline {
         }
         success {
             script {
-                // Update GitHub commit status to success
-                updateGitHubCommitStatus state: 'SUCCESS', context: 'CI/Jenkins', description: 'The build succeeded!'
+                // Notify GitHub about the success
+                githubNotify account: 'yourGitHubAccount', repo: 'yourRepo', context: 'CI', status: 'SUCCESS', description: 'The build succeeded!'
             }
             echo 'Pipeline successfully executed'
         }
         failure {
             script {
-                // Update GitHub commit status to failure
-                updateGitHubCommitStatus state: 'FAILURE', context: 'CI/Jenkins', description: 'The build failed!'
+                // Notify GitHub about the failure
+                githubNotify account: 'yourGitHubAccount', repo: 'yourRepo', context: 'CI', status: 'FAILURE', description: 'The build failed!'
             }
             echo 'Pipeline failed'
         }

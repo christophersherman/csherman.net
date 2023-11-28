@@ -8,7 +8,9 @@ services:
       MYSQL_USER: ${MYSQL_TEST_USER}
       MYSQL_PASSWORD: ${MYSQL_TEST_PASSWORD} 
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_PORT: ${MYSQL_TEST_PORT}
+      MYSQL_PORT: ${MYSQL_TEST_PORT
+    depends_on:
+      - mysql-db
   mysql-db:
     image: mysql:5.7
     platform: linux/x86_64
