@@ -52,9 +52,13 @@ pipeline {
                 // Define the check's title and summary
                 def title = 'Build'
                 def summary = currentBuild.result == 'SUCCESS' ? 'Build succeeded' : 'Build failed'
+                def conclusion = currentBuild.result == 'SUCCESS' ? 'SUCCESS' : 'FAILURE'
+
+                // Construct details URL (optional, provide a link to build results)
+                def detailsURL = "${env.JENKINS_URL}job/${env.JOB_NAME}/${env.BUILD_NUMBER}/"
 
                 // Publish the check to GitHub
-                publishChecks name: 'CI', title: title, summary: summary, status: 'COMPLETED', conclusion: currentBuild.result == 'SUCCESS' ? 'SUCCESS' : 'FAILURE'
+                publishChecks name: 'CI', title: title, summary: summary, detailsURL: detailsURL, conclusion: conclusion
             }
         }
     }
