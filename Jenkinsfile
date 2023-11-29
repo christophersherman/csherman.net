@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    
+    environment {
+        // Define necessary environment variables
+        REPO = 'csherman.net' // Replace with your GitHub repository name
+        ACCOUNT = 'christophersherman' // Replace with your GitHub account or organization name
+        CREDENTIALS_ID = '483e6f5e-fb3f-462b-a20f-ebaf46c32ff5' // Replace with your Jenkins credentials ID for GitHub
+    }
 
     stages {
         stage('Checkout Code') {
@@ -41,20 +48,17 @@ pipeline {
             sh 'docker-compose -f docker-compose.test.yml down -v'
             // Remove the .env file 
             sh 'rm -f .env'
-        }
-        success {
             script {
-                // Notify GitHub about the success
-                githubNotify account: 'yourGitHubAccount', repo: 'yourRepo', context: 'CI', status: 'SUCCESS', description: 'The build succeeded!'
+                // Get the current commit SHA
+                def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+
+                // Update GitHub check status
+                if (currentBuild.result == 'SUCCESS') {
+                    githubChecks repo: "${REPO}", credentialsId: "${CREDENTIALS_ID}", account: "${ACCOUNT}", sha: "${sha}", name: 'CI', title: 'Build', summary: 'Build succeeded', status: 'COMPLETED', conclusion: 'SUCCESS'
+                } else {
+                    githubChecks repo: "${REPO}", credentialsId: "${CREDENTIALS_ID}", account: "${ACCOUNT}", sha: "${sha}", name: 'CI', title: 'Build', summary: 'Build failed', status: 'COMPLETED', conclusion: 'FAILURE'
+                }
             }
-            echo 'Pipeline successfully executed'
-        }
-        failure {
-            script {
-                // Notify GitHub about the failure
-                githubNotify account: 'yourGitHubAccount', repo: 'yourRepo', context: 'CI', status: 'FAILURE', description: 'The build failed!'
-            }
-            echo 'Pipeline failed'
         }
     }
 }
