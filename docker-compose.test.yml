@@ -8,7 +8,6 @@ services:
       MYSQL_USER: ${MYSQL_TEST_USER}
       MYSQL_PASSWORD: ${MYSQL_TEST_PASSWORD} 
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_PORT: ${MYSQL_TEST_PORT}
     depends_on:
       - mysql-db
   mysql-db:
@@ -19,7 +18,6 @@ services:
       MYSQL_USER: ${MYSQL_TEST_USER}
       MYSQL_PASSWORD: ${MYSQL_TEST_PASSWORD} 
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_PORT: ${MYSQL_TEST_PORT}
     ports:
       - "3307:3306" # Use a different port to avoid conflicts with the dev/prod DB
     volumes:
