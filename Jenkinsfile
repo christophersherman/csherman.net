@@ -50,19 +50,6 @@ pipeline {
             sh 'docker-compose -f docker-compose.test.yml down -v'
             // Remove the .env file 
             sh 'rm -f .env'
-            script {
-                // Define the check's title and summary
-                def title = 'Build'
-                def summary = currentBuild.result == 'SUCCESS' ? 'Build succeeded' : 'Build failed'
-                def conclusion = currentBuild.result == 'SUCCESS' ? 'SUCCESS' : 'FAILURE'
-
-                // Construct details URL (optional, provide a link to build results)
-                def detailsURL = "${env.JENKINS_URL}job/${env.JOB_NAME}/${env.BUILD_NUMBER}/"
-                echo detailsURL
-                echo 'hey'
-                // Publish the check to GitHub
-                publishChecks name: 'CI', title: title, summary: summary, detailsURL: detailsURL, conclusion: conclusion
-            }
         }
     }
 }
