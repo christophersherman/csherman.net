@@ -1,13 +1,6 @@
 pipeline {
     agent any
     
-    environment {
-        // Define necessary environment variables
-        REPO = 'csherman.net' // Replace with your GitHub repository name
-        ACCOUNT = 'christophersherman' // Replace with your GitHub account or organization name
-        CREDENTIALS_ID = '483e6f5e-fb3f-462b-a20f-ebaf46c32ff5' // Replace with your Jenkins credentials ID for GitHub
-    }
-
     stages {
         stage('Checkout Code') {
             steps {
