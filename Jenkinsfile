@@ -49,15 +49,12 @@ pipeline {
             // Remove the .env file 
             sh 'rm -f .env'
             script {
-                // Get the current commit SHA
-                def sha = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+                // Define the check's title and summary
+                def title = 'Build'
+                def summary = currentBuild.result == 'SUCCESS' ? 'Build succeeded' : 'Build failed'
 
-                // Update GitHub check status
-                if (currentBuild.result == 'SUCCESS') {
-                    githubChecks repo: "${REPO}", credentialsId: "${CREDENTIALS_ID}", account: "${ACCOUNT}", sha: "${sha}", name: 'CI', title: 'Build', summary: 'Build succeeded', status: 'COMPLETED', conclusion: 'SUCCESS'
-                } else {
-                    githubChecks repo: "${REPO}", credentialsId: "${CREDENTIALS_ID}", account: "${ACCOUNT}", sha: "${sha}", name: 'CI', title: 'Build', summary: 'Build failed', status: 'COMPLETED', conclusion: 'FAILURE'
-                }
+                // Publish the check to GitHub
+                publishChecks name: 'CI', title: title, summary: summary, status: 'COMPLETED', conclusion: currentBuild.result == 'SUCCESS' ? 'SUCCESS' : 'FAILURE'
             }
         }
     }
