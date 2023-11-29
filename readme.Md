@@ -1,1 +1,3 @@
-csherman.net - test
+csherman.net
+
+This is an infra project
