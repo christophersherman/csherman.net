@@ -17,7 +17,7 @@ pipeline {
 
         stage('Prepare Environment') {
             steps {
-                withCredentials([file(credentialsId: 'ed5e96d5-7a37-46b5-a0ed-732a6fe16547', variable: 'ENV_FILE')]) {
+                withCredentials([file(credentialsId: '9dca2753-b85b-4e5a-b9ee-e5af21499068', variable: 'ENV_FILE')]) {
                     script {
                         sh 'cat $ENV_FILE > .env'  // Write the secret file content to a .env file
                     }
