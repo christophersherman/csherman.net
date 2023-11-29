@@ -35,6 +35,8 @@ pipeline {
             steps {
                 // Bring up the services including test dependencies
                 sh 'docker-compose -f docker-compose.test.yml up -d'
+                echo 'sleepy time'
+                sh 'sleep 10' 
                 // Run the test commands
                 sh 'docker-compose -f docker-compose.test.yml run flask-app python -m unittest'
                 // Shut down the services after tests
@@ -42,5 +44,24 @@ pipeline {
             }
         }
     }
-    
+    post {
+        always {
+            // Clean up Docker
+            sh 'docker-compose -f docker-compose.test.yml down -v'
+            // Remove the .env file 
+            sh 'rm -f .env'
+            script {
+                // Define the check's title and summary
+                def title = 'Build'
+                def summary = currentBuild.result == 'SUCCESS' ? 'Build succeeded' : 'Build failed'
+                def conclusion = currentBuild.result == 'SUCCESS' ? 'SUCCESS' : 'FAILURE'
+
+                // Construct details URL (optional, provide a link to build results)
+                def detailsURL = "${env.JENKINS_URL}job/${env.JOB_NAME}/${env.BUILD_NUMBER}/"
+
+                // Publish the check to GitHub
+                publishChecks name: 'CI', title: title, summary: summary, detailsURL: detailsURL, conclusion: conclusion
+            }
+        }
+    }
 }
