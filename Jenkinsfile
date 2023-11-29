@@ -59,7 +59,7 @@ pipeline {
                 // Construct details URL (optional, provide a link to build results)
                 def detailsURL = "${env.JENKINS_URL}job/${env.JOB_NAME}/${env.BUILD_NUMBER}/"
                 echo detailsURL
-                echo 'hey'
+                echo 'heyo'
                 // Publish the check to GitHub
                 publishChecks name: 'CI', title: title, summary: summary, detailsURL: detailsURL, conclusion: conclusion
             }
