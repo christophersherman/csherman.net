@@ -47,11 +47,17 @@
       }
     ],
     "work": [
+        {
+            "company" : "CyberCX",
+            "title" : "Senior System Reliability Engineer",
+            "years" : "Oct 2023 - Present",
+            "description" : "Developed standardized CI pipelines for Python projects, enhancing deployment efficiency in a secure, off-internet environment, and led a Python-based monitoring and alerting system, integrating InfluxDB, Elasticsearch, Grafana, and Telegraf for real-time insights. Also implemented and maintained secure, self-hosted CI/CD processes to boost system reliability and cybersecurity resilience."
+        },
       {
         "company": "Qantas",
         "title": "Site Reliability Engineer",
-        "years": "Feb 2022 - Present",
-        "description":  "Using Jira, Splunk, Akamai, MySQL, Ansible, Jenkins, NginX, AWS to maintain and troubleshoot suite of hundreds of Spring Boot services. Apart of a 24/7 oncall roster"
+        "years": "Feb 2022 - Oct 2023",
+        "description":  "Optimized AWS ECS microservices for peak performance using Docker and Kubernetes, with 24/7 incident management via PagerDuty, and implemented comprehensive monitoring with tools like Splunk and Datadog. Streamlined deployments using Jenkins, Ansible, and Terraform, and led the lifecycle of Java Spring Boot services, enhancing quality with SonarQube and fostering collaboration through Slack, JIRA, and Confluence."
       },
       {
         "company": "SICE",
