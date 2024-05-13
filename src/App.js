@@ -9,7 +9,7 @@ import Resume from './Components/Resume';
 import Contact from './Components/Contact';
 import Testimonials from './Components/Testimonials';
 import Portfolio from './Components/Portfolio';
-
+import { inject } from '@vercel/analytics';
 class App extends Component {
 
   constructor(props){
@@ -40,6 +40,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    inject();
     this.getResumeData();
   }
 
