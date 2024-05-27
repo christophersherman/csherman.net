@@ -1,58 +1,98 @@
 import React, { Component } from 'react';
-import Typewriter from 'typewriter-effect';
-import './Header.css';
+import { TypeAnimation } from 'react-type-animation';
+
 class Header extends Component {
   render() {
 
-    if(this.props.data){
+    if (this.props.data) {
       var name = this.props.data.name;
-      var occupation= this.props.data.occupation;
-      var description= this.props.data.description;
-      var city= this.props.data.address.city;
-      
-      var networks= this.props.data.social.map(function(network){
+      var occupation = this.props.data.occupation;
+      var description = this.props.data.description;
+      var city = this.props.data.address.city;
+
+      var networks = this.props.data.social.map(function (network) {
         return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
-      })
+      });
     }
+
+    const fontStyle = {
+      fontFamily: "'Ubuntu', sans-serif",
+    };
 
     return (
       <header id="home">
+        <head>
+          <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" />
+        </head>
+        <nav id="nav-wrap">
+          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+          <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
 
-      <nav id="nav-wrap">
-
-         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" className="nav">
+          <ul id="nav" className="nav">
             <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
             <li><a className="smoothscroll" href="#about">About</a></li>
-	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
+            <li><a className="smoothscroll" href="#resume">Resume</a></li>
             {/*<li><a className="smoothscroll" href="#portfolio">Works</a></li>
             <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
             <li><a className="smoothscroll" href="#contact">Contact</a></li>*/}
-         </ul>
+          </ul>
+        </nav>
 
-      </nav>
-
-      <div className="row banner" >
-         <div className="banner-text" >
-            <h1 className="responsive-headline">I'm {name}.</h1>
+        <div className="row banner">
+          <div className="banner-text" style={fontStyle}>
+            <h1>
+              &#123; &nbsp;
+              <TypeAnimation
+                sequence={[
+                  "Christopher Sherman",
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                style={{ fontSize: '1em', display: 'inline-block', fontFamily: "'Ubuntu', sans-serif" }}
+                repeat={Infinity}
+                cursor={false}
+              />
+              &nbsp; &#125;
+            </h1>
             <h3 id="typewriter_h3">
-               I'm a Sydney based &ensp; <Typewriter  id="shit" options={{ strings:   ["Site Reliability Engineer", "Software Engineer" , "code monkey", "terminal smasher", "Arch elitist", "computer wizard", "power lifter", "hip hop enthusiast", "football fan", "professional googler", "Seinfield lover"], autoStart: true,loop: true,}}/>  
-               {description}
+              <TypeAnimation
+                sequence={[
+                  1300,
+                  "I'm a Sydney based Site Reliability Engineer",
+                  1500,
+                  "I'm a Sydney based Software Engineer",
+                  1500,
+                  "I'm a Sydney based DevOps Engineer",
+                  1500,
+                  "I'm a Sydney based Linux enthusiast",
+                  1500,
+                  "I'm a Sydney based Power lifter",
+                  1500,
+                  "I'm a Sydney based Macbook elitist",
+                  1500,
+                  "I'm a Sydney based Seinfeild enjoyer",
+                  1500,
+                  "I'm a Sydney based FOSS fanatic",
+                  1500,
+                ]}
+                wrapper="span"
+                speed={50}
+                style={{ fontSize: '1em', display: 'inline-block', fontFamily: "'Ubuntu', sans-serif" }}
+                repeat={Infinity}
+              />
             </h3>
             <hr />
             <ul className="social">
-               {networks}
+              {networks}
             </ul>
-         </div>
-      </div>
+          </div>
+        </div>
 
-      <p className="scrolldown">
-         <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
-      </p>
-
-   </header>
+        <p className="scrolldown">
+          <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
+        </p>
+      </header>
     );
   }
 }

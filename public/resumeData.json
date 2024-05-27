@@ -4,7 +4,7 @@
     "occupation": "Site Reliability Engineer",
     "description": "",
     "image": "profilepic.jpg",
-    "bio": "Dual American/Australian citizen. Raised and schooled in Texas. Relocated to Sydney, AUS in 2020. Lover of all things tech, fitness, and music. Always learning. ",
+    "bio": "Dual American/Australian citizen. Relocated to Sydney in early 2020. Ask me about my current projects!",
     "contactmessage": "Feel free to use this to message me, or via Email.",
     "email": "csherman@mailbox.org",
     "phone": "0487-350-467",
@@ -80,36 +80,36 @@
     ],
     "skills": [
       {
-        "name": "Spring Boot",
-        "level": "60%"
-      },
-      {
         "name": "Python",
-        "level": "70%"
+        "level": "95%"
       },
       {
-        "name": "Splunk",
-        "level": "55%"
+        "name": "Golang",
+        "level": "75%"
       },
       {
-        "name": "Ansible",
-        "level": "85%"
+        "name": "Splunk / Elastic Stack",
+        "level": "100%"
       },
       {
-        "name": "AWS",
+        "name": "Puppet, Ansible, Chef",
+        "level": "75%"
+      },
+      {
+        "name": "Grafana",
         "level": "70%"
       },
       {
         "name": "Jenkins CI/CD",
-        "level": "75%"
-      },
-      {
-        "name": "Bash",
-        "level": "60%"
-      },
-      {
-        "name": "Git",
         "level": "90%"
+      },
+      {
+        "name": "Bash, Git, & General Linux familiarity",
+        "level": "90%"
+      },
+      {
+        "name": "Backend development (Flask, Spring Boot)",
+        "level": "80%"
       }
     ]
   },

@@ -13,13 +13,15 @@ class About extends Component {
       var phone = this.props.data.phone;
       var email = this.props.data.email;
       var resumeDownload = this.props.data.resumedownload;
+      var pgpKeyDownload = this.props.data.pgpkeydownload; // Add PGP key download link to props
+      var pgpFingerprint = this.props.data.pgpfingerprint; // Add PGP key fingerprint to props
     }
 
     return (
       <section id="about">
         <div className="row">
           <div className="three columns">
-            <img className="profile-pic" src={profilepic} alt="Chris Sherman pic" />
+            <img className="profile-pic" src={profilepic} alt={`${name} pic`} />
           </div>
           <div className="nine columns main-col">
             <h2>About Me</h2>
@@ -37,6 +39,12 @@ class About extends Component {
                   <a href="/resume.pdf" className="button"><i className="fa fa-download"></i>Download Resume</a>
                 </p>
               </div>
+            </div>
+            <div className="row">
+              <div className="columns pgp-key">
+                <h2>PGP Key</h2>
+                <p>You can use my <a href="https://keys.openpgp.org/search?q=csherman@mailbox.org">PGP key </a>to encrypt emails sent to me for added security.</p>
+               </div>
             </div>
           </div>
         </div>
