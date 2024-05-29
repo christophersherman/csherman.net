@@ -40,25 +40,10 @@ class Header extends Component {
 
         <div className="row banner">
           <div className="banner-text" style={fontStyle}>
-            <h1>
-              &#123; &nbsp;
-              <TypeAnimation
-                sequence={[
-                  "Christopher Sherman",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                style={{ fontSize: '1em', display: 'inline-block', fontFamily: "'Ubuntu', sans-serif" }}
-                repeat={Infinity}
-                cursor={false}
-              />
-              &nbsp; &#125;
-            </h1>
+            <h1> &#123;Christopher Sherman&#125;</h1>
             <h3 id="typewriter_h3">
               <TypeAnimation
                 sequence={[
-                  1300,
                   "I'm a Sydney based Site Reliability Engineer",
                   1500,
                   "I'm a Sydney based Software Engineer",
