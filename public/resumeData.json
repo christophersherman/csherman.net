@@ -116,10 +116,10 @@
   "portfolio": {
     "projects": [
       {
-        "title": "Canadian Wanderlust",
-        "category": "My Travel Blog for my post-university travels",
-        "image": "canadian-wanderlust.jpg",
-        "url": "https://www.canadianwanderlust.com"
+        "title": "CrowdStrike outage as a Reliability Engineer",
+        "category": "My blog entry regarding the recent CrowdStrike outage",
+        "image": "blog_entry_1.png",
+        "url": "https://www.srechris.com/posts/crowdstrike-outage-as-an-sre/"
       }
     ]
   },
