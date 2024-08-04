@@ -46,6 +46,8 @@ class Header extends Component {
                 sequence={[
                   "I'm a Sydney based Site Reliability Engineer",
                   1500,
+                  "I'm a Sydney based Production Engineer",
+                  1500,
                   "I'm a Sydney based Software Engineer",
                   1500,
                   "I'm a Sydney based DevOps Engineer",
