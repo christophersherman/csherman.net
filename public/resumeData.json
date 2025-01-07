@@ -1,13 +1,13 @@
 {
   "main": {
     "name": "Chris Sherman",
-    "occupation": "Site Reliability Engineer",
+    "occupation": "Production Engineer",
     "description": "",
     "image": "profilepic.jpg",
-    "bio": "Dual American/Australian citizen. Relocated to Sydney in early 2020. Open to opportunities in both Australia and the US.",
+    "bio": "Dual American/Australian citizen. Relocated to San Fransisco in Nov. 2024. Open to opportunities in both Australia and the US.",
     "contactmessage": "Feel free to use this to message me, or via Email.",
     "email": "csherman@mailbox.org",
-    "phone": "0487-350-467",
+    "phone": "",
     "address": {
    },
     "website": "srechris.com",
@@ -47,10 +47,16 @@
       }
     ],
     "work": [
+    	{
+	    "company" : "Meta",
+	    "title" : "Production Engineer",
+	    "years" : "Nov 2024 - Present",
+	    "description" : "Building Facebook AI Research High Performance Compute GPU clusters for machine learning and articial intelligence bleeding edge research. Managing some of the biggest H100/H200 clusters in the world using Slurm, Kubernetes, and Slurm On Kubernetes (SUNK)."
+    	},
         {
             "company" : "CyberCX",
             "title" : "Senior System Reliability Engineer",
-            "years" : "Oct 2023 - Present",
+            "years" : "Oct 2023 - Sep 2024",
             "description" : "Developed standardized CI pipelines for Python projects, enhancing deployment efficiency in a secure, off-internet environment, and led a Python-based monitoring and alerting system, integrating InfluxDB, Elasticsearch, Grafana, and Telegraf for real-time insights. Also implemented and maintained secure, self-hosted CI/CD processes to boost system reliability and cybersecurity resilience."
         },
       {
