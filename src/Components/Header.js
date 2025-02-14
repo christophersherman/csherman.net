@@ -44,23 +44,23 @@ class Header extends Component {
             <h3 id="typewriter_h3">
               <TypeAnimation
                 sequence={[
-                  "I'm a San Fransisco based Production Engineer",
+                  "I'm a San Francisco based Production Engineer",
                   1500,
-                  "I'm a San Fransisco based Site Reliability Engineer",
+                  "I'm a San Francisco based Site Reliability Engineer",
                   1500,
-                  "I'm a San Fransisco based Software Engineer",
+                  "I'm a San Francisco based Software Engineer",
                   1500,
-                  "I'm a San Fransisco based DevOps Engineer",
+                  "I'm a San Francisco based DevOps Engineer",
                   1500,
-                  "I'm a San Fransisco based Linux enthusiast",
+                  "I'm a San Francisco based Linux enthusiast",
                   1500,
-                  "I'm a San Fransisco based Power lifter",
+                  "I'm a San Francisco based Power lifter",
                   1500,
-                  "I'm a San Fransisco based Macbook elitist",
+                  "I'm a San Francisco based Macbook elitist",
                   1500,
-                  "I'm a San Fransisco based Seinfeild enjoyer",
+                  "I'm a San Francisco based Seinfeild enjoyer",
                   1500,
-                  "I'm a San Fransisco based FOSS fanatic",
+                  "I'm a San Francisco based FOSS fanatic",
                   1500,
                 ]}
                 wrapper="span"
