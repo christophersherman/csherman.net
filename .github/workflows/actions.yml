@@ -15,7 +15,7 @@ jobs:
       - name: Log in to Container Registry
         uses: docker/login-action@v2
         with:
-          registry: sjc.ocir.io
+          registry: ghcr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
@@ -27,5 +27,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: sjc.ocir.io/sdifdzpzkhfj/csherman-net:latest
+          tags: ghcr.io/christophersherman/csherman.net:latest
 

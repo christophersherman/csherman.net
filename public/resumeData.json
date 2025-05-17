@@ -51,7 +51,7 @@
 	    "company" : "Meta",
 	    "title" : "Production Engineer",
 	    "years" : "Nov 2024 - Present",
-	    "description" : "Building Facebook AI Research High Performance Compute GPU clusters for machine learning and articial intelligence bleeding edge research. Managing some of the biggest H100/H200 clusters in the world using Slurm, Kubernetes, and Slurm On Kubernetes (SUNK)."
+	    "description" : "Building Facebook AI Research HPC super clusters in the cloud on kubernetes with Lustre and OpenZFS storage in the hundreds of Petabytes."
     	},
         {
             "company" : "CyberCX",
@@ -81,7 +81,7 @@
         "company": "Texas A&M University",
         "title": "IT Helpdesk Support",
         "years": "May 2018 - Mar 2020",
-        "description": "Provide technical support, troubleshooting, maintenance, and upgrades to clients via ticket based submission system. Wrote scripts to reduce summer maintenance program from 6 months to2 weeks"
+        "description": "Provide technical support, troubleshooting, maintenance, and upgrades to clients via ticket based submission system. Wrote scripts to reduce summer maintenance program from 6 months to 2 weeks"
       }
     ],
     "skills": [
