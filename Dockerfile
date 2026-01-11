@@ -1,9 +1,9 @@
 # Dockerfile
 
 # ---- Build Stage ----
-# Use an official Node runtime as a parent image. Choose a version compatible with your project.
-# Alpine versions are smaller.
-FROM node:18-alpine AS build
+# Use an official Node runtime as a parent image.
+# Node 20 LTS for longer support.
+FROM node:20-alpine AS build
 
 # Set the working directory in the container
 WORKDIR /app

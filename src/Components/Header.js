@@ -1,87 +1,85 @@
-import React, { Component } from 'react';
+import React, { useCallback } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
-class Header extends Component {
-  render() {
+const Header = ({ data }) => {
+  const scrollTo = useCallback((e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
 
-    if (this.props.data) {
-      var name = this.props.data.name;
-      var occupation = this.props.data.occupation;
-      var description = this.props.data.description;
-      var city = this.props.data.address.city;
+  if (!data) return null;
 
-      var networks = this.props.data.social.map(function (network) {
-        return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
-      });
-    }
+  return (
+    <>
+      <nav className="nav">
+        <a href="#home" className="nav-logo" onClick={(e) => scrollTo(e, 'home')}>
+          chris sherman
+        </a>
+        <ul className="nav-links">
+          <li><a href="#about" onClick={(e) => scrollTo(e, 'about')}>About</a></li>
+          <li><a href="#experience" onClick={(e) => scrollTo(e, 'experience')}>Experience</a></li>
+        </ul>
+        <button className="mobile-menu-btn" aria-label="Menu">
+          <span /><span /><span />
+        </button>
+      </nav>
 
-    const fontStyle = {
-      fontFamily: "'Ubuntu', sans-serif",
-    };
-
-    return (
-      <header id="home">
-        <head>
-          <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" />
-        </head>
-        <nav id="nav-wrap">
-          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-          <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
-
-          <ul id="nav" className="nav">
-            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-            <li><a className="smoothscroll" href="#about">About</a></li>
-            <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            {/*<li><a className="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
-            <li><a className="smoothscroll" href="#contact">Contact</a></li>*/}
-          </ul>
-        </nav>
-
-        <div className="row banner">
-          <div className="banner-text" style={fontStyle}>
-            <h1> &#123;Christopher Sherman&#125;</h1>
-            <h3 id="typewriter_h3">
-              <TypeAnimation
-                sequence={[
-                  "I'm a San Francisco based Production Engineer",
-                  1500,
-                  "I'm a San Francisco based Site Reliability Engineer",
-                  1500,
-                  "I'm a San Francisco based Software Engineer",
-                  1500,
-                  "I'm a San Francisco based DevOps Engineer",
-                  1500,
-                  "I'm a San Francisco based Linux enthusiast",
-                  1500,
-                  "I'm a San Francisco based Power lifter",
-                  1500,
-                  "I'm a San Francisco based Macbook elitist",
-                  1500,
-                  "I'm a San Francisco based Seinfeild enjoyer",
-                  1500,
-                  "I'm a San Francisco based FOSS fanatic",
-                  1500,
-                ]}
-                wrapper="span"
-                speed={50}
-                style={{ fontSize: '1em', display: 'inline-block', fontFamily: "'Ubuntu', sans-serif" }}
-                repeat={Infinity}
-              />
-            </h3>
-            <hr />
-            <ul className="social">
-              {networks}
-            </ul>
+      <section id="home" className="hero">
+        <div className="hero-bg" style={{ backgroundImage: 'url(/images/header-background.jpg)' }} />
+        <div className="hero-overlay" />
+        <div className="hero-container">
+          <h1 className="hero-title">{"{Chris Sherman}"}</h1>
+          <p className="hero-typewriter">
+            I'm a{' '}
+            <TypeAnimation
+              sequence={[
+                "Production Engineer at Meta",
+                2500,
+                "builder of AI infrastructure",
+                2500,
+                "Kubernetes enthusiast",
+                2500,
+                "Site Reliability Engineer",
+                2500,
+              ]}
+              wrapper="span"
+              speed={40}
+              repeat={Infinity}
+            />
+          </p>
+          <div className="hero-links">
+            <a href="https://resume.csherman.net" className="hero-link hero-link-primary" target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
+            <a href={`mailto:${data.email}`} className="hero-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Email
+            </a>
+            <a href="https://github.com/christophersherman" className="hero-link" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/christopher-sherman-2b8475159" className="hero-link" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
           </div>
         </div>
-
-        <p className="scrolldown">
-          <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
-        </p>
-      </header>
-    );
-  }
-}
+        <a href="#about" className="hero-scroll" onClick={(e) => scrollTo(e, 'about')}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
+      </section>
+    </>
+  );
+};
 
 export default Header;

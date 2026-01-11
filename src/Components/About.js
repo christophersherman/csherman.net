@@ -1,56 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class About extends Component {
-  render() {
-    if (this.props.data) {
-      var name = this.props.data.name;
-      var profilepic = "images/" + this.props.data.image;
-      var bio = this.props.data.bio;
-      var street = this.props.data.address.street;
-      var city = this.props.data.address.city;
-      var state = this.props.data.address.state;
-      var zip = this.props.data.address.zip;
-      var phone = this.props.data.phone;
-      var email = this.props.data.email;
-      var resumeDownload = this.props.data.resumedownload;
-      var pgpKeyDownload = this.props.data.pgpkeydownload; // Add PGP key download link to props
-      var pgpFingerprint = this.props.data.pgpfingerprint; // Add PGP key fingerprint to props
-    }
+const About = ({ data }) => {
+  if (!data) return null;
 
-    return (
-      <section id="about">
-        <div className="row">
-          <div className="three columns">
-            <img className="profile-pic" src={profilepic} alt={`${name} pic`} />
-          </div>
-          <div className="nine columns main-col">
-            <h2>About Me</h2>
-            <p>{bio}</p>
-            <div className="row">
-              <div className="columns contact-details">
-                <h2>Contact Details</h2>
-                <p className="address">
-                  <span>{name}</span><br />
-                  <span>{email}</span>
-                </p>
-              </div>
-              <div className="columns download">
-                <p>
-                  <a href="https://resume.csherman.net" className="button"><i className="fa fa-download"></i>View Resume</a>
-                </p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="columns pgp-key">
-                <h2>PGP Key</h2>
-                <p>You can use my <a href="https://keys.openpgp.org/search?q=csherman@mailbox.org">PGP key </a>to encrypt emails sent to me for added security.</p>
-               </div>
+  return (
+    <section id="about">
+      <div className="section-container">
+        <h2 className="section-title">About</h2>
+        <div className="about-content">
+          <img
+            src={`images/${data.image}`}
+            alt={data.name}
+            className="about-image"
+          />
+          <div className="about-text">
+            <h2>Chris Sherman</h2>
+            <p>
+              {data.bio}
+            </p>
+            <p>
+              At Meta, I build and maintain HPC clusters for Facebook AI Research.
+              This involves Kubernetes orchestration, Lustre and OpenZFS storage systems
+              at petabyte scale, and ensuring reliability for critical AI workloads.
+            </p>
+            <div className="about-contact">
+              <a href={`mailto:${data.email}`}>{data.email}</a>
+              <a href="https://keys.openpgp.org/search?q=csherman@mailbox.org" target="_blank" rel="noopener noreferrer">
+                PGP Key
+              </a>
+              <span>San Francisco, CA</span>
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
-}
+      </div>
+    </section>
+  );
+};
 
 export default About;
