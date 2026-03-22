@@ -13,7 +13,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install project dependencies using 'ci' for consistency and speed in CI/CD environments
-RUN npm ci
+RUN npm install
 
 # Copy the rest of the application's source code
 COPY . .
