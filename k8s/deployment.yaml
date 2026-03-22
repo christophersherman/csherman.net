@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csherman-net
+  namespace: apps
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: csherman-net
+  template:
+    metadata:
+      labels:
+        app: csherman-net
+    spec:
+      containers:
+      - name: web
+        image: 10.0.0.110:30500/csherman-net:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 10m
+          limits:
+            memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: csherman-net
+  namespace: apps
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: csherman-net
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: csherman-net
+  namespace: apps
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - csherman.net
+    - www.csherman.net
+    secretName: csherman-net-tls
+  rules:
+  - host: csherman.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: csherman-net
+            port:
+              number: 80
+  - host: www.csherman.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: csherman-net
+            port:
+              number: 80

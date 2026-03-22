@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { inject } from '@vercel/analytics';
 import './App.css';
 import Header from './Components/Header';
 import About from './Components/About';
@@ -11,7 +10,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    inject();
     fetch('/resumeData.json')
       .then(res => res.json())
       .then(data => {
